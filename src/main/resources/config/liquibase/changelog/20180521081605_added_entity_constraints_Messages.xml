@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity Messages.
+    -->
+    <changeSet id="20180521081605-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="messages_id"
+                                 baseTableName="messages_user_messages"
+                                 constraintName="fk_messages_user_messages_messages_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="messages"/>
+        <addForeignKeyConstraint baseColumnNames="user_messages_id"
+                                 baseTableName="messages_user_messages"
+                                 constraintName="fk_messages_user_messages_user_messages_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="jhi_user"/>
+        
+    </changeSet>
+</databaseChangeLog>
