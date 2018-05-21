@@ -1,0 +1,46 @@
+
+<div *ngIf="tasks">
+    <h2><span>Tasks</span> {{tasks.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span>Title</span></dt>
+        <dd>
+            <span>{{tasks.title}}</span>
+        </dd>
+        <dt><span>Task</span></dt>
+        <dd>
+            <span>{{tasks.task}}</span>
+        </dd>
+        <dt><span>Image Url</span></dt>
+        <dd>
+            <span>{{tasks.image_url}}</span>
+        </dd>
+        <dt><span>Answer</span></dt>
+        <dd>
+            <span>{{tasks.answer}}</span>
+        </dd>
+        <dt><span>Group</span></dt>
+        <dd>
+            <span>{{tasks.group}}</span>
+        </dd>
+        <dt><span>User Tasks</span></dt>
+        <dd>
+            {{tasks.user_tasksLogin}}
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'tasks/'+ tasks.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span> Edit</span>
+    </button>
+</div>
